@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop A Balloon Game</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script defer src="app.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+    <div class="game-div" id="game_div">
+        <div>
+            <span id="user" class="user"></span>
+            <button type="submit" class="btn btn-primary" onclick="logOut()">Log out</button>
+            <br />
+            <span id="lastLoggedIn"></span>
+            <span id="Score"></span>
+            <span id="Lives"></span>
+            <br />
+
+
+
+            <button type="submit" class="btn btn-primary" id="start_btn" onclick="start()">Start</button>
+            <button type="submit" class="btn btn-primary" id="pause_btn" onclick="pause()">Pause</button>
+            <button type="submit" class="btn btn-primary" onclick="reset()">Reset</button>
+
+            <br />
+            <br />
+
+            <button class="count btn btn-primary" id="count">
+                <span>Time</span>
+                <br />
+                <h2 id="min">0</h2>
+                <h2 id="sec">0</h2>
+                <h2 id="msec">0</h2>
+            </button>
+
+            
+            <button class="score btn btn-primary" id="score">
+                <span class="score-child">Score</span>
+                <br />
+                <h2 id="score_num" class="score-child">0</h2>
+            </button>
+
+            
+            <button class="lives btn btn-primary" id="lives">
+                <span class="lives-child">Lives</span>
+                <br />
+                <h2 class="lives-child" id="lives_num">3</h2>
+            </button>
+
+            
+            <button class="lives btn btn-primary" id="level1">
+                <span class="lives-child">level</span>
+                <br />
+                <h2  class="lives-child">1</h2>
+            </button>
+
+
+        </div>
+
+
+
+        <div class="game-div-child" id="game_div_child">
+
+            <div onmouseover="over(this)" class="baloon red-baloon">red</div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+            <div onmouseover="over(this)" class="baloon red-baloon"></div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+            <div onmouseover="over(this)" class="baloon red-baloon"></div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+            <div onmouseover="over(this)" class="baloon red-baloon"></div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+            <div onmouseover="over(this)" class="baloon red-baloon"></div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+            <div onmouseover="over(this)" class="baloon red-baloon"></div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+            <div onmouseover="over(this)" class="baloon red-baloon"></div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+            <div onmouseover="over(this)" class="baloon red-baloon"></div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+            <div onmouseover="over(this)" class="baloon red-baloon"></div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+            <div onmouseover="over(this)" class="baloon red-baloon"></div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+            <div onmouseover="over(this)" class="baloon red-baloon"></div>
+            <div onmouseover="over(this)" class="baloon yellow-baloon"></div>
+            <div onmouseover="over(this)" class="baloon blue-baloon"></div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

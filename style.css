@@ -1,0 +1,108 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.count h2{
+    display: inline-block;
+    margin: 0px;
+    font-size: 18px;
+}
+
+.score-child{
+    font-size: 15px;
+}
+
+.lives-child{
+    font-size: 15px;
+}
+
+.game-div{
+    background-color: white;
+}
+
+.game-div-child{
+    height: 400px;
+    width: 300px;
+    background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.red-baloon{
+    background-color: red;
+    color: red;
+}
+
+.yellow-baloon{
+    background-color: yellow;
+    top: 10px;
+    color: yellow;
+}
+
+
+
+.blue-baloon{
+    background-color: blue;
+    color: blue;
+}
+
+
+.baloon{
+    position: relative;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    margin: 0px 4px 0px 4px;
+    padding: 0px;
+    
+}
+
+.top{
+    top: 3px;
+}
+.bottom{
+    bottom: 3px;
+}
+.right{
+    right: 3px;
+}
+.left{
+    left: 3px;
+}
+
+.win-div{
+    background-color: violet;
+    position: absolute;
+    height: 20%;
+    width: 20%;
+    text-align: center;
+    padding-top: 30px;
+}
+
+
+
+
+.hover{
+    height: 32px;
+    width: 32;
+}
+
+.pop-yellow{
+    color: yellow;
+    font-weight: bold;
+}
+
+.none{
+    background: none;
+}
+
+
+/* .user{
+    background-color: gray;
+} */
